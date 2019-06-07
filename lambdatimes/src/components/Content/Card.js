@@ -51,7 +51,7 @@ const Card = ({ card }) => {
         <ImgContainer>
           <img src={card.img} alt={card.headline} />
         </ImgContainer>
-        <span>By {card.headline}</span>
+        <span>By {card.author}</span>
       </Author>
     </CardContainer>
   );
