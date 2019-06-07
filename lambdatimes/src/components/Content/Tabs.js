@@ -12,6 +12,7 @@ const Tabs = ({ tabs, selectedTab, selectTabHandler }) => {
             give the tab component a `selectTabHandler`, the `selectedTab`, and the `tab` itself as props*/}
         {tabs.map(tab => (
           <Tab
+            key={tab}
             tab={tab}
             selectTabHandler={selectTabHandler}
             selectedTab={selectedTab}
