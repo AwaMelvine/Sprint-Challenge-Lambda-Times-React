@@ -14,16 +14,45 @@ const CardContainer = styled.div`
   padding: 24px;
 `;
 
+const Headline = styled.div`
+  font-size: 25px;
+  font-family: Didot, serif;
+`;
+
+const Author = styled.div`
+  display: flex;
+  justify-content: none;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 15px;
+`;
+
+const ImgContainer = styled.div`
+  padding-right: 10px;
+  border-right: 1px solid lightgrey;
+  height: 40px;
+
+  img {
+    width: 40px;
+  }
+  span {
+    padding-left: 10px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: bold;
+  }
+`;
+
 const Card = ({ card }) => {
   return (
     <CardContainer>
-      <div className="headline">{card.headline}</div>
-      <div className="author">
-        <div className="img-container">
+      <Headline>{card.headline}</Headline>
+      <Author>
+        <ImgContainer>
           <img src={card.img} alt={card.headline} />
-        </div>
+        </ImgContainer>
         <span>By {card.headline}</span>
-      </div>
+      </Author>
     </CardContainer>
   );
 };
