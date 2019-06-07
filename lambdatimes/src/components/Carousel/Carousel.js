@@ -16,37 +16,62 @@ const CarouselContainer = styled.div`
   @media (min-width: 1200px) {
     width: 1200px;
   }
-  .left-button,
-  .right-button {
-    display: flex;
-    justify-content: center;
-    align-items: none;
-    flex-direction: row;
-    color: #fff;
-    background-color: #333;
-    font-size: 40px;
-    border-radius: 50%;
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-  }
-  .left-button:hover,
-  .right-button:hover {
+`;
+
+const LeftButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: none;
+  flex-direction: row;
+  color: #fff;
+  background-color: #333;
+  font-size: 40px;
+  border-radius: 50%;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+
+  &:hover {
     color: #333;
     background-color: #fff;
     border: 2px solid #333;
   }
-  .left-button {
-    top: 50%;
-    left: 25px;
-    transform: translate(0, -50%);
+
+  top: 50%;
+  left: 25px;
+  transform: translate(0, -50%);
+
+  img {
+    width: 100%;
+    display: none;
   }
-  .right-button {
-    top: 50%;
-    right: 25px;
-    transform: translate(0, -50%);
+`;
+
+const RightButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: none;
+  flex-direction: row;
+  color: #fff;
+  background-color: #333;
+  font-size: 40px;
+  border-radius: 50%;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+
+  &:hover {
+    color: #333;
+    background-color: #fff;
+    border: 2px solid #333;
   }
+
+  top: 50%;
+  right: 25px;
+  transform: translate(0, -50%);
+
   img {
     width: 100%;
     display: none;
@@ -97,19 +122,17 @@ export default class Carousel extends Component {
   selectedImage = () => {
     const { slides, currentIndex } = this.state;
 
-    return <img src={slides[currentIndex]} style={{ display: "block" }} />;
+    return (
+      <img src={slides[currentIndex]} alt="" style={{ display: "block" }} />
+    );
   };
 
   render() {
     return (
       <CarouselContainer>
         {this.selectedImage()}
-        <div className="left-button" onClick={this.leftClick}>
-          {"<"}
-        </div>
-        <div className="right-button" onClick={this.rightClick}>
-          {">"}
-        </div>
+        <LeftButton onClick={this.leftClick}>{"<"}</LeftButton>
+        <RightButton onClick={this.rightClick}>{">"}</RightButton>
       </CarouselContainer>
     );
   }
