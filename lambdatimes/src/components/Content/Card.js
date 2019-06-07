@@ -25,6 +25,13 @@ const Author = styled.div`
   align-items: center;
   flex-direction: row;
   margin-top: 15px;
+
+  span {
+    padding-left: 10px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: bold;
+  }
 `;
 
 const ImgContainer = styled.div`
@@ -34,12 +41,6 @@ const ImgContainer = styled.div`
 
   img {
     width: 40px;
-  }
-  span {
-    padding-left: 10px;
-    font-size: 12px;
-    letter-spacing: 1px;
-    font-weight: bold;
   }
 `;
 
